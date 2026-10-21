@@ -1249,9 +1249,6 @@ function place(idx) {
   updateHud();
   const li = tlEl.querySelector(`[data-id="${card.id}"]`);
   if (li) li.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-  const bonus = pts ? ` +${pts} pts` : "";
-  if (ok) toast(`${isNew ? "New card collected. " : ""}Correct, ${when(card)}.${bonus}`);
-  else toast(`${isNew ? "New card collected. " : ""}Wrong place. It was ${when(card)}.${bonus}`, true);
   setTimeout(() => {
     G.busy = false;
     if (G.queue.length) drawNext(); else { $("g-left").textContent = ""; finishRound(); }
